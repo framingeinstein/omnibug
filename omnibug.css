@@ -1,3 +1,39 @@
+body {
+    background-color: #fff;
+    font-family: arial, helvetica, sans-serif;
+}
+h3 {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+ul {
+    margin-top: 0;
+    padding-top: 0;
+    list-style-image: url( /img/arrow.gif );
+}
+img {
+    border: 0;
+}
+
+ul.inline,
+ul.inline li {
+    display: inline;
+}
+ul.inline li {
+    padding: 0 10px;
+    border: 1px solid #000;
+    border-width: 0 1px;
+}
+ul.inline li.first {
+    border-left-width: 0;
+    padding-left: 0;
+}
+ul.inline li.last {
+    border-right-width: 0;
+    padding-right: 0;
+}
+
+
 table,thead,tbody,tr,th,td {
     border: 1px solid #999;
     border-collapse: collapse;

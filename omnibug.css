@@ -58,7 +58,10 @@ fieldset {
     padding: 0;
 }
 .sec {
-    margin: 1em 0 0 2em;
+    margin: 1em 0 2.5em 2em;
+}
+.link {
+    font-weight: bold;
 }
 .lit {
     font-family: Courier New, Courier;
@@ -110,6 +113,14 @@ div.oheader img {
     width: 64px;
 }
 
+#prefs {
+    display: none;
+}
+#prefsToggle {
+    display: block;
+    margin-bottom: 1em;
+    font-weight: bold;
+}
 
 #twitter {
     float: right;

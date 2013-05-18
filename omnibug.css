@@ -110,3 +110,16 @@ div.oheader img {
     width: 64px;
 }
 
+
+#twitter {
+    float: right;
+    width: 500px;
+}
+#ss {
+    float: left;
+    margin: 0;
+}
+.clear {
+    clear: both;
+}
+

@@ -9,7 +9,7 @@ h3 {
 ul {
     margin-top: 0;
     padding-top: 0;
-    list-style-image: url( /img/arrow.gif );
+    list-style-image: url( img/arrow.gif );
 }
 img {
     border: 0;
@@ -104,5 +104,9 @@ div.oheader h3 {
     line-height: 64px;
     vertical-align: top;
     border: 0;
+}
+div.oheader img {
+    height: 64px;
+    width: 64px;
 }
 

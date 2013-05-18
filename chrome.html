@@ -6,9 +6,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <meta name="keywords" content="Omnibug Chrome extension debug develop web metrics analytics Omniture SiteCatalyst Moniforce WebTrends Google Urchin" />
     <meta name="description" content="Omnibug is a tool for web developers to make the task of debugging web metrics tools (such as Omniture SiteCatalyst and Google Analytics) less painful." />
+
+    <!-- @TODO: remove -->
     <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
 
-    <link rel='stylesheet' type='text/css' media='all' href='/ross.css' />
     <link rel='stylesheet' type='text/css' media='all' href='omnibug.css' />
 
     <script type="text/javascript" src="obf.js"></script>
@@ -16,17 +17,18 @@
 
 <body>
     <div class="oheader">
-        <img src="/img/o-64.png" alt="O" />
+        <img src="img/o-64.png" alt="O" />
         <h3>Omnibug for Chrome</h3>
     </div>
 
     <div class="sec">
         <p>I have created a Chrome version of the Omnibug extension.  It functions much like the Firefox version, with the following caveats:</p>
         <ul>
-            <li>No logging to the filesystem</li>
-            <li>No "watches" sidebar</li>
             <li>By default, shows parameter descriptions (parameter names are shown on hover)</li>
             <li>All preferences available via the Options page</li>
+            <li>No logging to the filesystem</li>
+            <li>No "watches" sidebar</li>
+            <li>No context menu in panel</li>
         </ul>
 
         <p>It also includes lots more metrics providers, including:</p>
@@ -50,15 +52,19 @@
         </ul>
     </div>
 
-    <h3>Get It</h3>
-    <div class="sec changelog">
+    <h3>Beta</h3>
+    <div class="sec">
+        <p>I am holding a small open beta period for users of the existing Firefox version to try out the Chrome version.  <strong>If you'd like to participate, please <a class="e" rel="e_Ynphdm9odEBlYmZmZnZ6Y2ZiYS5wYno=" href="mailto:">email me</a> directly</strong>, and I'll send you a copy of the .crx file.<p>
+
+        <p>During the beta period, please direct all questions, comments, problems and other communications to <a class="e" rel="e_Ynphdm9odEBlYmZmZnZ6Y2ZiYS5wYno=" href="mailto:">my email</a>.</p>
+<!--
         <ol>
-            <li>Right-click the following link; save it somewhere on your system: <!--#include virtual="chrome_dl_link.cgi" --></li>
             <li>In Chrome, go to Tools &rarr; Extensions</li>
             <li>Locate the .crx file downloaded in step 1 and drag it into the extensions menu.</li>
             <li>Click "Add" at the prompt</li>
             <li>Enjoy!</li>
         </ol>
+-->
     </div>
 
     <h3>Compatibility</h3>
@@ -71,17 +77,18 @@
 
     <h3>Source</h3>
     <div class="sec">
-        <p>Omnibug is open-source software.  You can check out the source code on <a href="https://github.com/simpsora/omnibug/tree/master/chrome">GitHub</a>.<p>
+        <p>Omnibug is open-source software.  You can check out the source code on <a href="https://github.com/simpsora/omnibug">GitHub</a>.<p>
     </div>
 
 
+<!-- @TODO: re-add -->
+<!--
     <h3>Support</h3>
     <div class="sec">
         <p>To report a bug, please use the <a href="https://github.com/simpsora/omnibug/issues">issue tracker</a> on GitHub.</p>
         <p>To request a feature, or for general comments and questions, feel free to <a class="e" rel="e_Ynphdm9odEBlYmZmZnZ6Y2ZiYS5wYno=" href="mailto:">email me</a>.</p>
     </div>
 
-<!--
     <h3>Donation</h3>
     <div class="sec">
         <p>If you find Omnibug useful, feel free to make a donation (via PayPal) by clicking on the button below.  There is no obligation, of course.</p>
@@ -103,12 +110,14 @@
         <p>Company names referenced above are the property of their respective owners.</p>
     </div>
 
-    <h3 class="foot">&nbsp;</h3>
-    <div class="foot">
-        Modified <!--#echo var="LAST_MODIFIED" -->
-    </div>
-
-<!--#include virtual="../urchin.html" -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-41016297-1', 'rosssimpson.com');
+      ga('send', 'pageview');
+    </script>
 
 </body>
 </html>

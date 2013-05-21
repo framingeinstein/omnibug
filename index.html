@@ -35,7 +35,7 @@
 
     <h3>Get It</h3>
     <div class="sec">
-        <p class="link">Download/Install: <a href='http://www.rosssimpson.com/dev/omnibug-0.5.440.xpi'>omnibug-0.5.440.xpi</a>, released Wed Apr  3 21:55:09 CDT 2013</p>
+        <p class="link">Download/Install: <a id="dl" href='http://www.rosssimpson.com/dev/omnibug-0.5.440.xpi'>omnibug-0.5.440.xpi</a>, released Wed Apr  3 21:55:09 CDT 2013</p>
         <p>Soon available at <a href="http://addons.mozilla.org">addons.mozilla.org</a></p>
     </div>
 
@@ -252,6 +252,21 @@
                     cont.style.display = "block";
                     e.target.textContent = "Hide preferences table";
                 }
+            } );
+        }
+    </script>
+
+    <script type="text/javascript">
+        var link = document.getElementById( "dl" );
+        if( !! link ) {
+            link.addEventListener( "click", function( e ) {
+                ga( 'send', {
+                    'hitType': 'event',
+                    'eventCategory': 'link',
+                    'eventAction': 'download',
+                    'eventLabel': 'omnibug.download.xpi',
+                    'nonInteraction': 1
+                } );
             } );
         }
     </script>

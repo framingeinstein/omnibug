@@ -5,6 +5,9 @@ body {
 h3 {
     margin-bottom: 0;
     padding-bottom: 0;
+    border-top: 2px dotted #009;
+    padding-top: .5em;
+    color: #009;
 }
 ul {
     margin-top: 0;
@@ -46,11 +49,6 @@ th, td {
     padding: .5em;
     text-align: left;
     font-size: 13px;
-}
-h3 {
-    border-top: 2px dotted #009;
-    padding-top: .5em;
-    color: #009;
 }
 fieldset {
     border: 0;
@@ -100,13 +98,15 @@ div.changelog ul li {
 }
 
 div.oheader { display: inline-block; }
-div.oheader h3 {
+div.oheader h1 {
     display: inline-block;
     margin: 0 0 0 1em;
     padding: 0;
     line-height: 64px;
     vertical-align: top;
     border: 0;
+    font-size: 19px;
+    color: #009;
 }
 div.oheader img {
     height: 64px;

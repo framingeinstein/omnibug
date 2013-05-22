@@ -22,23 +22,13 @@ var obf = ( function() {
 
         for( el in els ) {
             if( els.hasOwnProperty( el ) && els[el] instanceof Object ) {
-
-                if( els[el].rel && els[el].rel.match( /e_/ ) ) {
+                var de = els[el].getAttribute( "data-enc" );
+                if( !! de && de.match( /e_/ ) ) {
+                    de = de.replace( /^e_/, "" );
+                    de = rot13( b64dec( de ) );
                     target = els[el];
-                    attr = "rel";
-                } else if( els[el].value && els[el].value.match( /e_/ ) ) {
-                    target = els[el];
-                    attr = "value";
+                    target.href += de;
                 }
-
-                target[attr] = target[attr].replace( /^e_/, "" );
-                target[attr] = rot13( b64dec( target[attr] ) );
-
-                if( attr === "rel" ) {
-                    target.href += target[attr];
-                    target[attr] = "";
-                }
-
             }
         }
     }

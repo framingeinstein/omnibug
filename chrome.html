@@ -58,17 +58,18 @@
 
     <h3>Beta</h3>
     <div class="sec">
-        <p>I am holding a small open beta period for users of the existing Firefox version to try out the Chrome version.  <strong>If you'd like to participate, please <a class="e" rel="e_Ynphdm9odEBlYmZmZnZ6Y2ZiYS5wYno=" href="mailto:">email me</a> directly</strong>, and I'll send you a copy of the .crx file.<p>
+        <p>I am holding a small open beta period for users of the existing Firefox version to try out the Chrome version, and give feedback.</p>
 
-        <p>During the beta period, please direct all questions, comments, problems and other communications to <a class="e" rel="e_Ynphdm9odEBlYmZmZnZ6Y2ZiYS5wYno=" href="mailto:">my email</a>.</p>
-<!--
+        <p>During the beta, please direct all questions, comments, problems and other communications to <a class="e" rel="e_Ynphdm9odEBlYmZmZnZ6Y2ZiYS5wYno=" href="mailto:">my email</a>.</p>
         <ol>
-            <li>In Chrome, go to Tools &rarr; Extensions</li>
+            <li>Download (<strong>via right-click</strong>) <a id="dl" href='http://www.rosssimpson.com/dev/omnibug_0.2.crx'>omnibug_0.2.crx</a> to your computer</li>
+            <li>In Chrome, navigate to Tools &rarr; Extensions</li>
             <li>Locate the .crx file downloaded in step 1 and drag it into the extensions menu.</li>
             <li>Click "Add" at the prompt</li>
             <li>Enjoy!</li>
         </ol>
--->
+        <p>If you choose to download the beta version, please be aware that it is beta quality, and not a finished piece of software.  I welcome any feedback you may have!</p>
+        <p>Note: once the beta period is completed, the extension will be available at the Chrome Web Store.</p>
     </div>
 
     <h3>Compatibility</h3>
@@ -127,5 +128,24 @@
       ga('send', 'pageview');
     </script>
 
+    <script type="text/javascript">
+        var link = document.getElementById( "dl" );
+        if( !! link ) {
+            link.addEventListener( "click", function( e ) {
+                ga( 'send', {
+                    'hitType': 'event',
+                    'eventCategory': 'link',
+                    'eventAction': 'download',
+                    'eventLabel': 'omnibug.download.crx',
+                    'nonInteraction': false
+                } );
+                e.preventDefault();
+                setTimeout( function () {
+                    location.href = e.target.href;
+                }, 500 );
+                return false;
+            } );
+        }
+    </script>
 </body>
 </html>

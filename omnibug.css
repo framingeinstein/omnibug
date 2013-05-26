@@ -134,3 +134,6 @@ div.oheader img {
     clear: both;
 }
 
+li img.o {
+    margin-bottom: -2px;
+}

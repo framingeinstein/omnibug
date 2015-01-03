@@ -10,3 +10,12 @@ Desktop.ini
 
 # Mac folder info
 .DS_Store
+
+
+# Omnibug ignores for gh-pages branch
+build/
+deploy.key
+firefox/
+node_modules/
+omnibug.pem
+test/

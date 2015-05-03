@@ -2,22 +2,22 @@
 <RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
          xmlns:NC="http://home.netscape.com/NC-rdf#"
          xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <RDF:Seq RDF:about="rdf:#$KdUzy3">
-    <RDF:li RDF:resource="rdf:#$LdUzy3"/>
-  </RDF:Seq>
   <RDF:Description RDF:about="rdf:#$OdUzy3"
                    em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
                    em:minVersion="1.5"
-                   em:maxVersion="37.*"
-                   em:updateLink="http://omnibug.rosssimpson.com/dist/omnibug-0.5.509.xpi"
-                   em:updateHash="sha1:40c266025f1a670dcc4078578e5c4da4b2661bdc"
+                   em:maxVersion="38.*"
+                   em:updateLink="http://omnibug.rosssimpson.com/dist/omnibug-0.5.511.xpi"
+                   em:updateHash="sha1:234f80f6d5516a52d382a2749fd831d9d929262b"
                    em:updateInfoURL="http://omnibug.rosssimpson.com/dist/omnibug_rel_notes.xhtml" />
+  <RDF:Seq RDF:about="rdf:#$KdUzy3">
+    <RDF:li RDF:resource="rdf:#$LdUzy3"/>
+  </RDF:Seq>
   <RDF:Description RDF:about="rdf:#$LdUzy3"
-                   em:version="0.5.509">
+                   em:version="0.5.511">
     <em:targetApplication RDF:resource="rdf:#$OdUzy3"/>
   </RDF:Description>
   <RDF:Description RDF:about="urn:mozilla:extension:Omnibug@rosssimpson.com"
-                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBABop+sFYZ4Q6my9wi7ZVVsM67spb2IFIk/FsgFlt6xjairs/35e5uj1ka0w8hnmr5ZYocNFgP0P3c0f9fCQGvXYp4WI34dmQ7SpfRKklMWVr2UxgkCEprTZJaWN6Wj6J1FMDxJQhM1wIIAbKFiBtvjHrwq4V+xkWLQQ7qZyCQz5b">
+                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAMYLl141FQNF0gUjwndRU8MShvYFWE+r7MMMyZ7YaGdHs+x49jqGcZSTeqcYoS2czrFoyYBDxQB+s5wFMOgzR3f6XCOowGUs7TwdCW1OXBfZYdKQNsMnPrhBXV3LBLRbm1/ygMSxGoixL7ehQdvt/YAUJC7WKDejfhEGUd4Yd61y">
     <em:updates RDF:resource="rdf:#$KdUzy3"/>
   </RDF:Description>
 </RDF:RDF>

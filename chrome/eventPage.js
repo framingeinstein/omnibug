@@ -128,7 +128,7 @@
     /**
      * Quickly determine if a URL is a candidate for us or not
      */
-    function shouldProcess( url ) {
+    var shouldProcess = function( url ) {
         return url.match( this.prefs.defaultRegex );
     }
 
@@ -150,10 +150,24 @@
      *   type: "xmlhttprequest"
      *   url: "https://0-act.channel.facebook.com/pull?cha...
      */
+
+    var requests = {};
+    var beforeRequestCallback = function( details ) {
+        if( details.tabId == -1 || !shouldProcess( details.url ) ) return;
+
+        if(details.method == "POST"){
+            //console.log(JSON.stringify(details));
+            requests[details.requestId] = details.requestBody;
+        }
+    }
+
     var responseStartedCallback = function( details ) {
         // ignore chrome:// requests and non-metrics URLs
         if( details.tabId == -1 || !shouldProcess( details.url ) ) return;
-
+        details.requestBody = "";
+        if(requests[details.requestId]){
+            details.requestBody = requests[details.requestId];
+        }
         if( !( details.tabId in tabs ) ) {
             /* disable this error message -- too numerous!
             console.error( "Request for unknown tabId ", details.tabId ); */
@@ -178,18 +192,24 @@
         return function( tab ) {
             // save the tab's current URL into the details object
             details.tabUrl = tab.url;
-
-            sendToDevToolsForTab( details.tabId, { "type" : "webEvent", "payload" : decodeUrl( details ) } );
+            
+            sendToDevToolsForTab( details.tabId, { "type" : "webEvent", "payload" : decodeUrl( details ), details: details, requests: requests} );
         }
     };
 
+    
+
+    chrome.webRequest.onBeforeRequest.addListener(
+        beforeRequestCallback,
+        {urls: ["<all_urls>"]},
+        ["requestBody"]
+    );
 
     chrome.webRequest.onResponseStarted.addListener(
         responseStartedCallback,
         { urls: ["<all_urls>"] }
         // @TODO: filter these based on static patterns/config ?
     );
-
 
     /**
      * Return the tabId associated with a port
@@ -265,10 +285,35 @@
         } );
     }
 
+    function string2Bin(str) {
+        var result = [];
+        for (var i = 0; i < str.length; i++) {
+            result.push(str.charCodeAt(i).toString(2));
+        }
+        return result;
+    }
+
+    function bin2String(bytes) {
+        
+        return String.fromCharCode.apply(null,new Uint8Array(bytes));
+    }
+
     /**
      * Receives a data object from the model, decodes it, and passes it on to report()
      */
     function decodeUrl( data ) {
+        console.log(data.requestBody);
+        if(data.requestBody && data.requestBody.raw && data.requestBody.raw.length){
+            console.log(bin2String(data.requestBody.raw[0].bytes));
+            var temp = data.url.split('?');
+            if(temp.length == 2){
+                temp[1] += "&" + bin2String(data.requestBody.raw[0].bytes);
+            } else {
+                temp.push(bin2String(data.requestBody.raw[0].bytes));
+            }
+            data.url = temp.join('?');
+        }
+
         var val,
             u = new OmnibugUrl( data.url ),
             obj = {
@@ -286,6 +331,10 @@
                 processQueryParam( n, vals, provider, processedKeys, obj["raw"] );
             }
         } );
+
+
+
+        console.log(data);
 
         delegateCustomProcessing( data.url, provider, processedKeys, obj["raw"] );
 

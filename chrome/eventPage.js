@@ -167,6 +167,8 @@
         details.requestBody = "";
         if(requests[details.requestId]){
             details.requestBody = requests[details.requestId];
+            // remove from hash
+            delete requests[details.requestId];
         }
         if( !( details.tabId in tabs ) ) {
             /* disable this error message -- too numerous!
@@ -302,9 +304,9 @@
      * Receives a data object from the model, decodes it, and passes it on to report()
      */
     function decodeUrl( data ) {
-        console.log(data.requestBody);
+        //console.log(data.requestBody);
         if(data.requestBody && data.requestBody.raw && data.requestBody.raw.length){
-            console.log(bin2String(data.requestBody.raw[0].bytes));
+            //console.log(bin2String(data.requestBody.raw[0].bytes));
             var temp = data.url.split('?');
             if(temp.length == 2){
                 temp[1] += "&" + bin2String(data.requestBody.raw[0].bytes);
@@ -334,7 +336,7 @@
 
 
 
-        console.log(data);
+        //console.log(data);
 
         delegateCustomProcessing( data.url, provider, processedKeys, obj["raw"] );
 

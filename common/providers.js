@@ -139,7 +139,7 @@ var OmnibugProvider = {
     OMNITURE: {
           key: "OMNITURE"
         , name: "Adobe Analytics"
-        , pattern: /\/b\/ss\/|2o7/
+        , pattern: /s?metrics[.]traderonline[.]com.*\/b\/ss\//
         , keys: {
               ns:     "Visitor namespace"
             , ndh:    "Image sent from JS?"
